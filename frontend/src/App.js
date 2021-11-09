@@ -32,9 +32,7 @@ const users = {
 
 const customBubble = (props) => (
   <div>
-    <p>{`${props.message.senderName} ${props.message.id ? "says" : "said"}: ${
-      props.message.message
-    }`}</p>
+    <p>{`${props.message.senderName} ${props.message.id ? "says" : "said"}: ${props.message.message}`}</p>
   </div>
 );
 
@@ -68,26 +66,31 @@ function App() {
   }
 
   async function pushMessage(recipient, message) {
-    let obj = {'sentence': message};
-    let response = await fetch('http://localhost:8080/query', {
-      method: 'POST',
+    console.log(message);
+    let obj = { sentence: message };
+    console.log(obj);
+    let response = await fetch("http://localhost:8080/query", {
+      mode: "cors",
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(obj)
-    })
-    response = await response.json()
-  
+      body: JSON.stringify(obj),
+    });
+
+    response = await response.json();
+    console.log(response);
+
     const newMessage = new Message({
       id: recipient,
       message,
       senderName: users[recipient],
     });
 
-    if(response==='true'){
-      newMessage.message = 'Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk'
+    if (response === true) {
+      newMessage.message = "Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk";
     }
-    
+
     let listMessages = [...messages, newMessage];
     setMessages(listMessages);
   }
@@ -111,9 +114,7 @@ function App() {
             className="message-input"
           />
         </form>
-        <div
-          style={{ display: "flex", justifyContent: "center", marginTop: 10 }}
-        ></div>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}></div>
       </div>
     </div>
   );
