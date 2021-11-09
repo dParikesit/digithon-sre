@@ -67,13 +67,27 @@ function App() {
     return true;
   }
 
-  function pushMessage(recipient, message) {
+  async function pushMessage(recipient, message) {
+    let obj = {'sentence': message};
+    let response = await fetch('http://localhost:8080/query', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(obj)
+    })
+    response = await response.json()
+  
     const newMessage = new Message({
       id: recipient,
       message,
       senderName: users[recipient],
     });
-    console.log("Halo");
+
+    if(response==='true'){
+      newMessage.message = 'Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk'
+    }
+    
     let listMessages = [...messages, newMessage];
     setMessages(listMessages);
   }
