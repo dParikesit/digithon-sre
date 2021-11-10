@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
 body {
   font-family: Roboto;
   margin: 0;
@@ -7,6 +9,7 @@ h1 {
 }
 h2 {
   font-size: 36px;
+  font-family: "Poppins";
 }
 .container {
   max-width: 850px;
@@ -33,7 +36,7 @@ input:focus {
   outline: none;
 }
 .chatfeed-wrapper {
-  box-shadow: 0 20px 20px rgba(0, 0, 0, .08);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   max-width: 450px;
   margin: 0 auto;

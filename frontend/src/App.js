@@ -1,36 +1,7 @@
 import { ChatFeed, ChatBubble, BubbleGroup, Message } from "react-chat-ui";
 import { useState } from "react";
 import React from "react";
-import ReactDOM from "react-dom";
 import "./App.css";
-
-// var SCOPES = ["https://mail.google.com/", "https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.compose", "https://www.googleapis.com/auth/gmail.send"];
-
-// const CLIENT_ID = "1062907572284-cnd6a7u8emkq1orlhedq85hj1sa999j1.apps.googleusercontent.com";
-// const CLIENT_SECRET = "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";
-
-// function makeBody(to, from, subject, message) {
-//   var str = ['Content-Type: text/plain; charset="UTF-8"\n', "MIME-Version: 1.0\n", "Content-Transfer-Encoding: 7bit\n", "to: ", to, "\n", "from: ", from, "\n", "subject: ", subject, "\n\n", message].join("");
-
-//   var encodedMail = new Buffer(str).toString("base64").replace(/\+/g, "-").replace(/\//g, "_");
-//   return encodedMail;
-// }
-
-// function sendMessage(auth) {
-//   var raw = makeBody("ariqathallah38@gmail.com", "kindboard.digithon@gmail.com", "test subject", "test message");
-//   gmail.users.messages.send(
-//     {
-//       auth: auth,
-//       userId: "me",
-//       resource: {
-//         raw: raw,
-//       },
-//     },
-//     function (err, response) {
-//       res.send(err || response);
-//     }
-//   );
-// }
 
 const styles = {
   button: {
@@ -68,11 +39,11 @@ const customBubble = (props) => (
 
 function App() {
   const [messages, setMessages] = useState([
-    new Message({ id: "Mark", message: "Hey guys!", senderName: "Mark" }),
+    new Message({ id: 1, message: "Halo guys!", senderName: "Dimas" }),
     new Message({
       id: 2,
-      message: "Hey! Evan here. react-chat-ui is pretty dooope.",
-      senderName: "Evan",
+      message: "Eh, gimana nih kabarnya?",
+      senderName: "Kristo",
     }),
   ]);
 
@@ -118,15 +89,20 @@ function App() {
     });
 
     if (response === true) {
-      newMessage.message = "Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk";
+      let isApproved = window.confirm(`Apakah kamu yakin akan mengirim kalimat "${message}"?`);
+      if (isApproved) {
+        let listMessages = [...messages, newMessage];
+        setMessages(listMessages);
+      }
+      // newMessage.message = "Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk";
+    } else {
+      let listMessages = [...messages];
+      setMessages(listMessages);
     }
-
-    let listMessages = [...messages, newMessage];
-    setMessages(listMessages);
   }
   return (
     <div className="container">
-      <h1 className="text-center">SRG</h1>
+      <h1 className="text-center">kindboard</h1>
       <div className="chatfeed-wrapper">
         <ChatFeed
           chatBubble={useCustomBubble && customBubble}

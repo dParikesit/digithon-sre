@@ -69,8 +69,9 @@ app.post("/query", async (req, res) => {
       if (isToxic) {
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes();
-        mailOptions["subject"] = "Anak Anda Terdeteksi Mengirim Ujaran Berunsur Cyberbullying, Simak Untuk Melihat!";
+        mailOptions["subject"] = "Kindboard: Warning, Simak Untuk Melihat!";
         mailOptions["text"] = `Kalimat yang dikirimkan : "${queryText}"\nWaktu : ${time}`;
+        mailOptions["text"] += "\nKami menyarankan Anda untuk mengambil tindakan lebih lanjut dengan mengedukasi anak secara baik-baik.";
         transporter.sendMail(mailOptions, function (error, info) {
           if (error) {
             console.log(error);
