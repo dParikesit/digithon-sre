@@ -39,10 +39,10 @@ const customBubble = (props) => (
 
 function App() {
   const [messages, setMessages] = useState([
-    new Message({ id: 1, message: "Halo guys!", senderName: "Dimas" }),
+    new Message({ id: 1, message: "Halo guys, PR Mat nomor 5 jawabannya apa ya?", senderName: "Dimas" }),
     new Message({
       id: 2,
-      message: "Eh, gimana nih kabarnya?",
+      message: "Wah, aku juga belum tuh",
       senderName: "Kristo",
     }),
   ]);
@@ -96,7 +96,7 @@ function App() {
       }
       // newMessage.message = "Pesan anda tidak terkirim karena terdeteksi sistem sebagai kalimat buruk";
     } else {
-      let listMessages = [...messages];
+      let listMessages = [...messages, newMessage];
       setMessages(listMessages);
     }
   }

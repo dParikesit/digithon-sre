@@ -53,7 +53,7 @@ app.post("/query", async (req, res) => {
     // console.log(data);
   });
 
-  const threshold = 0.8;
+  const threshold = 0.5;
 
   console.log("Predicting...  ");
 
