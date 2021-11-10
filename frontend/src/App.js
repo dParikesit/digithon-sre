@@ -1,6 +1,36 @@
 import { ChatFeed, ChatBubble, BubbleGroup, Message } from "react-chat-ui";
 import { useState } from "react";
+import React from "react";
+import ReactDOM from "react-dom";
 import "./App.css";
+
+// var SCOPES = ["https://mail.google.com/", "https://www.googleapis.com/auth/gmail.modify", "https://www.googleapis.com/auth/gmail.compose", "https://www.googleapis.com/auth/gmail.send"];
+
+// const CLIENT_ID = "1062907572284-cnd6a7u8emkq1orlhedq85hj1sa999j1.apps.googleusercontent.com";
+// const CLIENT_SECRET = "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";
+
+// function makeBody(to, from, subject, message) {
+//   var str = ['Content-Type: text/plain; charset="UTF-8"\n', "MIME-Version: 1.0\n", "Content-Transfer-Encoding: 7bit\n", "to: ", to, "\n", "from: ", from, "\n", "subject: ", subject, "\n\n", message].join("");
+
+//   var encodedMail = new Buffer(str).toString("base64").replace(/\+/g, "-").replace(/\//g, "_");
+//   return encodedMail;
+// }
+
+// function sendMessage(auth) {
+//   var raw = makeBody("ariqathallah38@gmail.com", "kindboard.digithon@gmail.com", "test subject", "test message");
+//   gmail.users.messages.send(
+//     {
+//       auth: auth,
+//       userId: "me",
+//       resource: {
+//         raw: raw,
+//       },
+//     },
+//     function (err, response) {
+//       res.send(err || response);
+//     }
+//   );
+// }
 
 const styles = {
   button: {

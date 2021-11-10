@@ -7,6 +7,28 @@ const toxicity = require("@tensorflow-models/toxicity");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "smtp.gmail.com",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "kindboard.digithon@gmail.com",
+    pass: "kindboardpastimenang",
+  },
+  debug: true,
+  logger: true,
+  ignoreTLS: true,
+});
+
+const mailOptions = {
+  from: "kindboard.digithon@gmail.com",
+  to: "ariqathallah38@gmail.com",
+  subject: "Sending Email via Node.js",
+  text: "That was easy!",
+};
 
 app.use(express.json());
 app.use(
@@ -44,6 +66,19 @@ app.post("/query", async (req, res) => {
       const isToxic = predictions.some((prediction) => prediction.results[0].match);
       // console.log({ sentences, isToxic });
       console.log(isToxic);
+      if (isToxic) {
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes();
+        mailOptions["subject"] = "Anak Anda Terdeteksi Mengirim Ujaran Berunsur Cyberbullying, Simak Untuk Melihat!";
+        mailOptions["text"] = `Kalimat yang dikirimkan : "${queryText}"\nWaktu : ${time}`;
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log("Email sent: " + info.response);
+          }
+        });
+      }
       res.send(isToxic);
     });
   });
