@@ -4,7 +4,7 @@ Sistem keyboard pintar yang menggunakan model TensorFlow/toxicity untuk mendetek
 
 Requirement : 
 
-[https://nodejs.org/en/download/] (Node v17+)
-[https://www.nvidia.com/Download/index.aspx?lang=en-us] (Nvidia GPU Drivers) Version >450.x
-[https://developer.nvidia.com/cuda-toolkit-archive] (CUDA Toolkit) Version 11.2
-[https://developer.nvidia.com/rdp/cudnn-download] (cuDNN SDK) Version 8.1.0
+ [Node v17+](https://nodejs.org/en/download/)
+ [Nvidia GPU Drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) Version >450.x
+ [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive)Version 11.2
+ [cuDNN SDK] (https://developer.nvidia.com/rdp/cudnn-download) Version 8.1.0
