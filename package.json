@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@tensorflow-models/toxicity": "^1.2.2",
+    "@tensorflow-models/toxicity": "^1.0.3",
     "@tensorflow/tfjs": "^3.11.0",
     "@tensorflow/tfjs-node": "^3.11.0",
     "@tensorflow/tfjs-node-gpu": "^3.11.0",
@@ -12,7 +12,7 @@
     "express": "^4.17.1",
     "node-fetch": "^3.0.0",
     "nodemailer": "^6.7.0",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.15"
   },
   "scripts": {
     "dev": "nodemon backend.js"
